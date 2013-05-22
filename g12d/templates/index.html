@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="banner">	
+	<div class="index-nav">
+		<div class="index-buttons">
+			<div class="centrar">
+				<div class="navbutton" onclick="window.location.href='/programa/';">
+					<center><img src="/files/img/programa.png" alt="Programa"></center>
+					<div class="text">						
+						<span>Filtros de actividades</span>
+						<a href="#">Programa</a>
+					</div>
+				</div>									
+				<div class="navbutton" onclick="window.location.href='/proyecto/';">
+					<center><img src="/files/img/proyectos.png" alt="Proyectos"></center>
+					<div class="text">
+						<span>Filtros de actividades</span>
+						<a href="{% url filtro_proyecto %}">Proyectos</a>
+					</div>
+				</div>				
+				<div class="navbutton" onclick="window.location.href='#';">
+					<center><img src="/files/img/manual.png" alt="Manual"></center>
+					<div class="text">
+						<span>Manual de usuario</span>
+						<a href="#">Manual</a>
+					</div>
+				</div>
+			</div>
+		</div>		
+	</div>	
+	<div class="clean"></div>
+</div>
+<div id="index-content">
+	<div class="index-left">		
+		<div class="index-descrip">
+			<div class="caption">
+				Programa de Gobernabilidad y Derechos Humanos. Sistema de registro de Actividades.
+			</div>
+		</div>
+		<div class="index-text">
+			<p>El programa de Gobernabilidad y Derechos Humanos tiene como finalidad contribuir a la construcción 
+			de la gobernabilidad democrática en Nicaragua. Para ello, las organizaciones que forman parte de este 
+			promueven procesos de construcción de ciudadanía activa y amplían las capacidades políticas y técnicas 
+			de los ciudadanos y ciudadanas para el  ejercicio de sus derechos. Las organizaciones también promueven 
+			la construcción de nuevos liderazgos democráticos con perspectiva de género y generacional.</p>
+			
+			<p>Otro componente importante que promueven las organizaciones del programa es la participación 
+			ciudadana en la fiscalización de los recursos públicos, la identificación de problemas comunes 
+			de las comunidades, la creación de consensos sobre sus problemáticas e intereses, así como la construcción 
+			y gestión de propuestas ante las autoridades locales.</p> 
+		</div>
+	</div>	
+	<div class="color-right">	
+		<div class="index-right">	
+			<div class="title">Organizaciones</div>	
+			<div class="index-list">
+			{% for org in organizaciones %}
+				<div class="index-entry">
+					<div class="orginfo">
+						<div class="nombre-corto">{{org.nombre_corto|upper}}</div>
+						<div class="nombre-largo">{{org.nombre}}</div>
+						<div class="actcount">Última actividad registrada el: 
+						<b style="color: red;">{{org.last_register|date:"d F Y"}}</b></div>
+					</div>
+					<div class="orglogo">
+						{% if org.logo %}
+						<img src="{{org.logo.url_50x50}}" alt="{{org.nombre_corto}}">
+						{% endif %}
+					</div>
+					<div class="clean"></div>
+				</div>
+			{% endfor %}
+			</div>			
+		</div>
+	</div>
+	<div class="clean"></div>
+</div>
+{% endblock %}
