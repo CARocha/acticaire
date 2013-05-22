@@ -5,3 +5,14 @@ local_settings.py
 settings_local.py
 *.db
 *.sql
+/g12d/static_media/uploads/
+*.pdf
+*.xls
+*.doc
+*.odt
+*.svn/*.*
+.DS_Store
+*.tar.bz
+*.tar
+*.tar.bz2
+*.tar.gz
