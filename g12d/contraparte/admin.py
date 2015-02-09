@@ -41,9 +41,9 @@ admin.site.register(Resultado)
 admin.site.register(Organizador)
 
 class ActividadAdmin(admin.ModelAdmin):
-    list_filter = ['resultado__aporta_a', 'organizacion', 'proyecto', 'persona_organiza', 'fecha']
-    search_fields = ['nombre_actividad', 'organizacion__nombre_corto', 'persona_organiza__nombre']
-    list_display = ['nombre_actividad', 'organizacion', 'fecha']
+    #list_filter = ['resultado__aporta_a', 'organizacion', 'proyecto', 'persona_organiza', 'fecha']
+    #search_fields = ['nombre_actividad', 'organizacion__nombre_corto', 'persona_organiza__nombre']
+    #list_display = ['nombre_actividad', 'organizacion', 'fecha']
     
     fieldsets = [
         (None, {'fields': [('organizacion', 'proyecto'), 'persona_organiza', 'nombre_actividad', 'fecha',
